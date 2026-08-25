@@ -1,316 +1,460 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>松展創新國際有限公司</title>
 
     <!-- Favicon 設定 -->
-    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
-    <link rel="manifest" href="./images/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="./images/site.webmanifest" />
 
     <style>
-        :root {
-            --primary-green: #2d6a4f;
-            --secondary-blue: #1d3557;
-            --accent-green: #52b788;
-            --light-bg: #f8f9fa;
-            --dark-text: #212529;
-        }
-        
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            overflow-x: hidden;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            color: var(--dark-text);
-            line-height: 1.6;
-        }
+      :root {
+        --primary-green: #2d6a4f;
+        --secondary-blue: #1d3557;
+        --accent-green: #52b788;
+        --light-bg: #f8f9fa;
+        --dark-text: #212529;
+      }
 
-        .main-header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-        }
-        .top-brand-bar {
-            background-color: var(--primary-green);
-            height: 6px;
-            width: 100%;
-        }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        color: var(--dark-text);
+        line-height: 1.6;
+      }
+
+      .main-header {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+      }
+      .top-brand-bar {
+        background-color: var(--primary-green);
+        height: 6px;
+        width: 100%;
+      }
+      .header-container {
+        width: 100%;
+        padding: 10px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .company-name {
+        font-size: 2.1rem;
+        font-weight: 700;
+        color: var(--secondary-blue);
+        letter-spacing: 1px;
+      }
+      .header-cta {
+        text-decoration: none;
+        color: var(--primary-green);
+        font-weight: 600;
+        border: 1.5px solid var(--primary-green);
+        padding: 6px 16px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+      }
+      .header-cta:hover {
+        background-color: var(--primary-green);
+        color: #ffffff;
+      }
+
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--secondary-blue) 0%,
+          var(--primary-green) 100%
+        );
+        color: white;
+        padding: 120px 40px;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+        color: #e0e0e0;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      }
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto 30px;
+        color: #cccccc;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+      .cta-btn {
+        background-color: var(--accent-green);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+      .cta-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .services {
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 2rem;
+        color: var(--secondary-blue);
+        margin-bottom: 50px;
+        position: relative;
+      }
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 4px;
+        background-color: var(--accent-green);
+        margin: 10px auto 0;
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .service-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border-top: 4px solid var(--primary-green);
+        transition: transform 0.3s ease;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+      .service-card h3 {
+        color: var(--secondary-blue);
+        margin-top: 0;
+      }
+
+      .profile {
+        background-color: var(--light-bg);
+        padding: 80px 20px;
+        text-align: center;
+      }
+      .profile-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .contact {
+        padding: 80px 20px;
+        max-width: 650px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+        text-align: left;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+      .submit-btn {
+        background-color: var(--primary-green);
+        color: white;
+        border: none;
+        padding: 14px;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+      .submit-btn:hover {
+        background-color: var(--accent-green);
+      }
+
+      footer {
+        background-color: var(--secondary-blue);
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
         .header-container {
-            width: 100%;
-            padding: 10px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .company-name {
-            font-size: 2.1rem;
-            font-weight: 700;
-            color: var(--secondary-blue);
-            letter-spacing: 1px;
-        }
-        .header-cta {
-            text-decoration: none;
-            color: var(--primary-green);
-            font-weight: 600;
-            border: 1.5px solid var(--primary-green);
-            padding: 6px 16px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-        .header-cta:hover {
-            background-color: var(--primary-green);
-            color: #ffffff;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-green) 100%);
-            color: white;
-            padding: 120px 40px;
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
+          padding: 15px 20px;
         }
         .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            color: #e0e0e0;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+          font-size: 2.2rem;
         }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: #cccccc;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        .company-name {
+          font-size: 1.6rem;
         }
-        .cta-btn {
-            background-color: var(--accent-green);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .services {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--secondary-blue);
-            margin-bottom: 50px;
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background-color: var(--accent-green);
-            margin: 10px auto 0;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary-green);
-            transition: transform 0.3s ease;
-        }
-        .service-card:hover { transform: translateY(-5px); }
-        .service-card h3 { color: var(--secondary-blue); margin-top: 0; }
-
-        .profile {
-            background-color: var(--light-bg);
-            padding: 80px 20px;
-            text-align: center;
-        }
-        .profile-container { max-width: 800px; margin: 0 auto; }
-
-        .contact {
-            padding: 80px 20px;
-            max-width: 650px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 30px;
-            text-align: left;
-        }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-            box-sizing: border-box;
-        }
-        .form-group textarea { resize: vertical; min-height: 100px; }
-        .submit-btn {
-            background-color: var(--primary-green);
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 6px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .submit-btn:hover { background-color: var(--accent-green); }
-
-        footer {
-            background-color: var(--secondary-blue);
-            color: rgba(255,255,255,0.7);
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .header-container { padding: 15px 20px; }
-            .hero h1 { font-size: 2.2rem; }
-            .company-name { font-size: 1.6rem; }
-        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <header class="main-header">
-        <div class="top-brand-bar"></div>
-        <div class="header-container">
-            <div class="logo-area">
-                <img src="./images/logo.png" alt="松展創新 Logo" style="height: 60px; width: auto; object-fit: contain;">
-                <span class="company-name">松展創新</span>
-            </div>
-            <nav class="header-nav">
-                <a href="#contact" class="header-cta">聯絡我們</a>
-            </nav>
+      <div class="top-brand-bar"></div>
+      <div class="header-container">
+        <div class="logo-area">
+          <img
+            src="./images/logo.png"
+            alt="松展創新 Logo"
+            style="height: 60px; width: auto; object-fit: contain"
+          />
+          <span class="company-name">松展創新</span>
         </div>
+        <nav class="header-nav">
+          <a href="#contact" class="header-cta">聯絡我們</a>
+        </nav>
+      </div>
     </header>
 
     <section class="hero">
-        <h1>引領企業綠色轉型，共創永續未來</h1>
-        <p>我們提供專業、全方位的 ESG 顧問諮詢與碳管理解決方案，助力企業符合國際標準，提升綠色競爭力。</p>
-        <a href="#contact" class="cta-btn">立即諮詢</a>
+      <h1>引領企業綠色轉型，共創永續未來</h1>
+      <p>
+        我們提供專業、全方位的 ESG
+        顧問諮詢與碳管理解決方案，助力企業符合國際標準，提升綠色競爭力。
+      </p>
+      <a href="#contact" class="cta-btn">立即諮詢</a>
     </section>
 
     <section class="services">
-        <h2 class="section-title">核心服務項目</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>📋 企業永續發展</h3>
-                <p>客製化永續發展策略，協助企業建立健全的 ESG 治理架構。</p>
-            </div>
-            <div class="service-card">
-                <h3>✍️ ESG 報告書</h3>
-                <p>輔導企業編制符合 GRI、SASB 及 TCFD 等國際準則之永續報告書。</p>
-            </div>
-            <div class="service-card">
-                <h3>🌱 碳管理、碳足跡</h3>
-                <p>精準計算產品碳足跡與生命週期，規劃實質減碳路徑與解決方案。</p>
-            </div>
-            <div class="service-card">
-                <h3>🏭 溫室氣體盤查</h3>
-                <p>協助進行 ISO 14064 溫室氣體盤查，掌握企業碳排放熱點。</p>
-            </div>
-            <div class="service-card">
-                <h3>🔄 企業轉型諮詢</h3>
-                <p>因應法規與供應鏈要求，提供低碳轉型與綠色經濟的策略顧問。</p>
-            </div>
-            <div class="service-card">
-                <h3>🎓 輔導課程</h3>
-                <p>舉辦內部培訓與專業工作坊，培育企業專屬的永續與碳盤查人才。</p>
-            </div>
+      <h2 class="section-title">核心服務項目</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>📋 企業永續發展</h3>
+          <p>客製化永續發展策略，協助企業建立健全的 ESG 治理架構。</p>
         </div>
+        <div class="service-card">
+          <h3>✍️ ESG 報告書</h3>
+          <p>輔導企業編制符合 GRI、SASB 及 TCFD 等國際準則之永續報告書。</p>
+        </div>
+        <div class="service-card">
+          <h3>🌱 碳管理、碳足跡</h3>
+          <p>精準計算產品碳足跡與生命週期，規劃實質減碳路徑與解決方案。</p>
+        </div>
+        <div class="service-card">
+          <h3>🏭 溫室氣體盤查</h3>
+          <p>協助進行 ISO 14064 溫室氣體盤查，掌握企業碳排放熱點。</p>
+        </div>
+        <div class="service-card">
+          <h3>🔄 企業轉型諮詢</h3>
+          <p>因應法規與供應鏈要求，提供低碳轉型與綠色經濟的策略顧問。</p>
+        </div>
+        <div class="service-card">
+          <h3>🎓 輔導課程</h3>
+          <p>舉辦內部培訓與專業工作坊，培育企業專屬的永續與碳盤查人才。</p>
+        </div>
+      </div>
     </section>
 
     <section class="profile">
-        <div class="profile-container">
-            <h2 class="section-title">專業團隊</h2>
-            <p style="font-size: 1.3rem; font-weight: bold; margin-bottom: 5px; color: var(--secondary-blue);">梁琳立</p>
-            <p style="color: #666; margin-top: 0; margin-bottom: 20px;">負責人 / 首席顧問</p>
-            <p style="max-width: 600px; margin: 0 auto; color: #555;">
-                松展創新由專業顧問團隊領軍，深耕永續減碳領域，致力於引導台灣企業平穩對接國際減碳浪潮，化綠色危機為商務轉型新契機。
-            </p>
-        </div>
+      <div class="profile-container">
+        <h2 class="section-title">專業團隊</h2>
+        <p
+          style="
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--secondary-blue);
+          "
+        >
+          梁琳立
+        </p>
+        <p style="color: #666; margin-top: 0; margin-bottom: 20px">
+          負責人 / 首席顧問
+        </p>
+        <p style="max-width: 600px; margin: 0 auto; color: #555">
+          松展創新由專業顧問團隊領軍，深耕永續減碳領域，致力於引導台灣企業平穩對接國際減碳浪潮，化綠色危機為商務轉型新契機。
+        </p>
+      </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2 class="section-title">聯絡我們</h2>
-        <p>若您有 ESG 報告書編制、碳盤查或企業輔導需求，歡迎直接填表與我們聯繫。</p>
-        
-        <!-- Web3Forms 表單整合 -->
-        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-            <input type="hidden" name="access_key" value="caa94f1f-651d-440c-ad2e-25da08a935b6">
-            <input type="hidden" name="subject" value="【松展官網】新訪客諮詢通知">
-            
-            <div class="form-group">
-                <input type="text" name="聯絡人姓名" placeholder="姓名 / 職稱" required>
-            </div>
-            <div class="form-group">
-                <input type="email" name="電子信箱" placeholder="電子信箱 (Email)" required>
-            </div>
-            <div class="form-group">
-                <input type="tel" name="聯絡電話" placeholder="聯絡電話" required>
-            </div>
-            <div class="form-group">
-                <select name="諮詢項目" required>
-                    <option value="" disabled selected>請選擇諮詢項目</option>
-                    <option value="企業永續發展 / ESG 報告書">企業永續發展 / ESG 報告書</option>
-                    <option value="溫室氣體盤查 / 碳足跡計算">溫室氣體盤查 / 碳足跡計算</option>
-                    <option value="內部培訓與輔導課程">內部培訓與輔導課程</option>
-                    <option value="其他合作洽詢">其他合作洽詢</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <textarea name="需求說明" placeholder="請簡述您的需求或現階段面臨的挑戰..."></textarea>
-            </div>
-            <button type="submit" class="submit-btn">立即送出諮詢</button>
-        </form>
+      <h2 class="section-title">聯絡我們</h2>
+      <p>
+        若您有 ESG 報告書編制、碳盤查或企業輔導需求，歡迎直接填表與我們聯繫。
+      </p>
 
-        <div style="margin-top: 35px; color: #666; font-size: 0.95rem;">
-            <div>✉️ <strong>信箱：</strong>curly8671@gmail.com</div>
-            <div style="margin-top: 5px;">📍 <strong>地址：</strong>桃園市中壢區八德路59-1號一樓</div>
+      <!-- Web3Forms 表單整合 -->
+      <form id="consultForm" class="contact-form">
+        <input
+          type="hidden"
+          name="access_key"
+          value="caa94f1f-651d-440c-ad2e-25da08a935b6"
+        />
+        <input
+          type="hidden"
+          name="subject"
+          value="【松展官網】新訪客諮詢通知"
+        />
+
+        <div class="form-group">
+          <input
+            type="text"
+            name="聯絡人姓名"
+            placeholder="姓名 / 職稱"
+            required
+          />
         </div>
+        <div class="form-group">
+          <input
+            type="email"
+            name="電子信箱"
+            placeholder="電子信箱 (Email)"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input type="tel" name="聯絡電話" placeholder="聯絡電話" required />
+        </div>
+        <div class="form-group">
+          <select name="諮詢項目" required>
+            <option value="" disabled selected>請選擇諮詢項目</option>
+            <option value="企業永續發展 / ESG 報告書">
+              企業永續發展 / ESG 報告書
+            </option>
+            <option value="溫室氣體盤查 / 碳足跡計算">
+              溫室氣體盤查 / 碳足跡計算
+            </option>
+            <option value="內部培訓與輔導課程">內部培訓與輔導課程</option>
+            <option value="其他合作洽詢">其他合作洽詢</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea
+            name="需求說明"
+            placeholder="請簡述您的需求或現階段面臨的挑戰..."
+          ></textarea>
+        </div>
+        <button type="submit" id="submitBtn" class="submit-btn">
+          立即送出諮詢
+        </button>
+        <div
+          id="formResult"
+          style="margin-top: 15px; font-weight: bold; text-align: center"
+        ></div>
+      </form>
+
+      <div style="margin-top: 35px; color: #666; font-size: 0.95rem">
+        <div>✉️ <strong>信箱：</strong>songzhan.innovation@gmail.com</div>
+        <div style="margin-top: 5px">
+          📍 <strong>地址：</strong>桃園市中壢區八德路59-1號一樓
+        </div>
+      </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 松展創新國際有限公司 SONG ZHAN INNOVATION INTERNATIONAL CO., LTD. All Rights Reserved.</p>
+      <p>
+        &copy; 2026 松展創新國際有限公司 SONG ZHAN INNOVATION INTERNATIONAL CO.,
+        LTD. All Rights Reserved.
+      </p>
     </footer>
 
-</body>
+    <script>
+      const form = document.getElementById("consultForm");
+      const result = document.getElementById("formResult");
+      const btn = document.getElementById("submitBtn");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerText = "傳送中，請稍候...";
+        result.innerHTML = "";
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+              result.style.color = "#2d6a4f";
+              result.innerHTML = "✓ 諮詢表單已成功送出！我們將盡快與您聯繫。";
+              form.reset();
+            } else {
+              result.style.color = "#e63946";
+              result.innerHTML = "✕ 送出失敗：" + json.message;
+            }
+          })
+          .catch((error) => {
+            result.style.color = "#e63946";
+            result.innerHTML = "✕ 網路連線錯誤，請稍後再試！";
+          })
+          .then(function () {
+            btn.disabled = false;
+            btn.innerText = "立即送出諮詢";
+            setTimeout(() => {
+              result.innerHTML = "";
+            }, 6000);
+          });
+      });
+    </script>
+  </body>
 </html>
