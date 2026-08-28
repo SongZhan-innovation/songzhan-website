@@ -1,414 +1,292 @@
 <!doctype html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>松展創新國際有限公司</title>
+    <title>松展創新國際 | 企業數位賦能與綠色轉型專家</title>
 
     <!-- Favicon 設定 -->
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="./images/favicon-16x16.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="./images/apple-touch-icon.png"
-    />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png" />
     <link rel="manifest" href="./images/site.webmanifest" />
 
-    <style>
-      :root {
-        --primary-green: #2d6a4f;
-        --secondary-blue: #1d3557;
-        --accent-green: #52b788;
-        --light-bg: #f8f9fa;
-        --dark-text: #212529;
-      }
+    <!-- 引入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 引入 Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        overflow-x: hidden;
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-        color: var(--dark-text);
-        line-height: 1.6;
-      }
-
-      .main-header {
-        background-color: #ffffff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        width: 100%;
-      }
-      .top-brand-bar {
-        background-color: var(--primary-green);
-        height: 6px;
-        width: 100%;
-      }
-      .header-container {
-        width: 100%;
-        padding: 10px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-sizing: border-box;
-      }
-      .logo-area {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-      .company-name {
-        font-size: 2.1rem;
-        font-weight: 700;
-        color: var(--secondary-blue);
-        letter-spacing: 1px;
-      }
-      .header-cta {
-        text-decoration: none;
-        color: var(--primary-green);
-        font-weight: 600;
-        border: 1.5px solid var(--primary-green);
-        padding: 6px 16px;
-        border-radius: 20px;
-        transition: all 0.3s ease;
-      }
-      .header-cta:hover {
-        background-color: var(--primary-green);
-        color: #ffffff;
-      }
-
-      .hero {
-        background: linear-gradient(
-          135deg,
-          var(--secondary-blue) 0%,
-          var(--primary-green) 100%
-        );
-        color: white;
-        padding: 120px 40px;
-        text-align: center;
-        width: 100%;
-        box-sizing: border-box;
-      }
-      .hero h1 {
-        font-size: 2.8rem;
-        margin-bottom: 20px;
-        font-weight: 700;
-        color: #e0e0e0;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-      }
-      .hero p {
-        font-size: 1.2rem;
-        max-width: 600px;
-        margin: 0 auto 30px;
-        color: #cccccc;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-      }
-      .cta-btn {
-        background-color: var(--accent-green);
-        color: white;
-        padding: 12px 30px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: bold;
-        display: inline-block;
-        transition: all 0.3s ease;
-      }
-      .cta-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      }
-
-      .services {
-        padding: 80px 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .section-title {
-        text-align: center;
-        font-size: 2rem;
-        color: var(--secondary-blue);
-        margin-bottom: 50px;
-        position: relative;
-      }
-      .section-title::after {
-        content: "";
-        display: block;
-        width: 50px;
-        height: 4px;
-        background-color: var(--accent-green);
-        margin: 10px auto 0;
-      }
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-      }
-      .service-card {
-        background: white;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        border-top: 4px solid var(--primary-green);
-        transition: transform 0.3s ease;
-      }
-      .service-card:hover {
-        transform: translateY(-5px);
-      }
-      .service-card h3 {
-        color: var(--secondary-blue);
-        margin-top: 0;
-      }
-
-      .profile {
-        background-color: var(--light-bg);
-        padding: 80px 20px;
-        text-align: center;
-      }
-      .profile-container {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .contact {
-        padding: 80px 20px;
-        max-width: 650px;
-        margin: 0 auto;
-        text-align: center;
-      }
-      .contact-form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 30px;
-        text-align: left;
-      }
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        font-size: 1rem;
-        box-sizing: border-box;
-      }
-      .form-group textarea {
-        resize: vertical;
-        min-height: 100px;
-      }
-      .submit-btn {
-        background-color: var(--primary-green);
-        color: white;
-        border: none;
-        padding: 14px;
-        border-radius: 6px;
-        font-size: 1.1rem;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background 0.3s ease;
-      }
-      .submit-btn:hover {
-        background-color: var(--accent-green);
-      }
-
-      footer {
-        background-color: var(--secondary-blue);
-        color: rgba(255, 255, 255, 0.7);
-        text-align: center;
-        padding: 20px;
-        font-size: 0.9rem;
-      }
-
-      @media (max-width: 768px) {
-        .header-container {
-          padding: 15px 20px;
-        }
-        .hero h1 {
-          font-size: 2.2rem;
-        }
-        .company-name {
-          font-size: 1.6rem;
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Noto Sans TC"', 'sans-serif'],
+              display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            },
+            colors: {
+              sz: {
+                navy: '#0B192C',
+                dark: '#1E3E62',
+                emerald: '#10B981',
+                mint: '#34D399',
+                light: '#F8FAFC',
+                card: '#FFFFFF',
+                sub: '#64748B'
+              }
+            }
+          }
         }
       }
-    </style>
+    </script>
   </head>
-  <body>
-    <header class="main-header">
-      <div class="top-brand-bar"></div>
-      <div class="header-container">
-        <div class="logo-area">
-          <img
-            src="./images/logo.png"
-            alt="松展創新 Logo"
-            style="height: 60px; width: auto; object-fit: contain"
-          />
-          <span class="company-name">松展創新</span>
+  <body class="bg-sz-light text-slate-800 font-sans antialiased selection:bg-sz-emerald selection:text-white">
+
+    <!-- 頂部導覽列 Navbar -->
+    <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-slate-200/80">
+      <div class="h-1 bg-gradient-to-r from-sz-dark via-sz-emerald to-sz-mint w-full"></div>
+      <div class="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between py-3">
+        <div class="flex items-center gap-3">
+          <img src="./images/logo.png" alt="松展創新 Logo" class="h-10 w-auto object-contain" onerror="this.style.display='none'">
+          <div class="flex flex-col">
+            <span class="text-xl font-bold tracking-tight text-sz-navy font-display">松展創新</span>
+            <span class="text-[9px] tracking-[0.25em] text-sz-sub uppercase font-medium">SongZhan Innovation</span>
+          </div>
         </div>
-        <nav class="header-nav">
-          <a href="#contact" class="header-cta">聯絡我們</a>
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+          <a href="#services" class="hover:text-sz-emerald transition-colors">核心服務</a>
+          <a href="#solutions" class="hover:text-sz-emerald transition-colors">雙軌解決方案</a>
+          <a href="#team" class="hover:text-sz-emerald transition-colors">顧問團隊</a>
+          <a href="#contact" class="px-5 py-2.5 bg-sz-navy text-white rounded-full hover:bg-sz-emerald transition-all duration-300 shadow-sm">預約洽詢</a>
         </nav>
+        <a href="#contact" class="md:hidden text-xs px-4 py-2 bg-sz-navy text-white rounded-full">預約諮詢</a>
       </div>
     </header>
 
-    <section class="hero">
-      <h1>引領企業綠色轉型，共創永續未來</h1>
-      <p>
-        我們提供專業、全方位的 ESG
-        顧問諮詢與碳管理解決方案，助力企業符合國際標準，提升綠色競爭力。
-      </p>
-      <a href="#contact" class="cta-btn">立即諮詢</a>
-    </section>
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 bg-gradient-to-b from-slate-900 via-sz-navy to-slate-900 text-white overflow-hidden">
+      <!-- 幾何光影背景裝飾 -->
+      <div class="absolute inset-0 z-0 opacity-20">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-sz-emerald rounded-full blur-[140px]"></div>
+      </div>
 
-    <section class="services">
-      <h2 class="section-title">核心服務項目</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>📋 企業永續發展</h3>
-          <p>客製化永續發展策略，協助企業建立健全的 ESG 治理架構。</p>
+      <div class="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-8">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs text-sz-mint font-medium tracking-wide">
+          <span class="w-2 h-2 rounded-full bg-sz-mint animate-pulse"></span>
+          雙軌驅動 ‧ 企業數位賦能 × ESG 永續轉型
         </div>
-        <div class="service-card">
-          <h3>✍️ ESG 報告書</h3>
-          <p>輔導企業編制符合 GRI、SASB 及 TCFD 等國際準則之永續報告書。</p>
-        </div>
-        <div class="service-card">
-          <h3>🌱 碳管理、碳足跡</h3>
-          <p>精準計算產品碳足跡與生命週期，規劃實質減碳路徑與解決方案。</p>
-        </div>
-        <div class="service-card">
-          <h3>🏭 溫室氣體盤查</h3>
-          <p>協助進行 ISO 14064 溫室氣體盤查，掌握企業碳排放熱點。</p>
-        </div>
-        <div class="service-card">
-          <h3>🔄 企業轉型諮詢</h3>
-          <p>因應法規與供應鏈要求，提供低碳轉型與綠色經濟的策略顧問。</p>
-        </div>
-        <div class="service-card">
-          <h3>🎓 輔導課程</h3>
-          <p>舉辦內部培訓與專業工作坊，培育企業專屬的永續與碳盤查人才。</p>
+        
+        <h1 class="text-3xl md:text-6xl font-bold tracking-tight leading-tight md:leading-[1.2]">
+          引領企業數位品牌進化<br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-sz-mint to-teal-200">
+            落實永續綠色競爭力
+          </span>
+        </h1>
+        
+        <p class="text-slate-300 text-sm md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+          松展創新為成長型企業提供全方位「商業官網客製開發」與「ESG 碳管理顧問」，協助您在數位市場精準獲客，同時平穩接軌國際減碳標準。
+        </p>
+
+        <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#services" class="px-8 py-3.5 bg-sz-emerald text-white rounded-xl hover:bg-emerald-600 transition-all duration-300 text-sm font-semibold tracking-wider shadow-lg shadow-sz-emerald/20">
+            探索核心業務
+          </a>
+          <a href="#contact" class="px-8 py-3.5 border border-white/30 text-white rounded-xl hover:bg-white/10 transition-all duration-300 text-sm font-medium tracking-wider backdrop-blur-sm">
+            立即聯絡顧問
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="profile">
-      <div class="profile-container">
-        <h2 class="section-title">專業團隊</h2>
-        <p
-          style="
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: var(--secondary-blue);
-          "
-        >
-          梁琳立
-        </p>
-        <p style="color: #666; margin-top: 0; margin-bottom: 20px">
-          負責人 / 首席顧問
-        </p>
-        <p style="max-width: 600px; margin: 0 auto; color: #555">
-          松展創新由專業顧問團隊領軍，深耕永續減碳領域，致力於引導台灣企業平穩對接國際減碳浪潮，化綠色危機為商務轉型新契機。
-        </p>
-      </div>
-    </section>
+    <!-- 雙軌解決方案介紹 Solutions -->
+    <section id="solutions" class="py-20 max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- 軌道 1：數位與商業官網建置 (重點業務) -->
+        <div class="relative bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-slate-100 flex flex-col justify-between hover:shadow-2xl transition-all duration-300 group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-sz-emerald flex items-center justify-center text-2xl font-bold">
+              💻
+            </div>
+            <span class="text-xs font-bold tracking-widest text-sz-emerald uppercase">Digital Presence</span>
+            <h3 class="text-2xl font-bold text-sz-navy">企業數位官網 ‧ 品牌體驗建置</h3>
+            <p class="text-sm text-sz-sub leading-relaxed">
+              專為中小企業、設計事務所與實體品牌打造極速、高轉換率的現代化響應式（RWD）官網。整合線上即時預約、LINE 加好友與自動通知系統，讓官方網站成為您 24 小時的線上業務開發機。
+            </p>
+            <div class="pt-2">
+              <a href="https://songzhan-innovation.github.io/interior-demo/" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-sz-emerald hover:underline">
+                查看最新作品示範：室內設計品牌 Demo ➔
+              </a>
+            </div>
+          </div>
+          <div class="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+            <span>✓ 極速載入</span>
+            <span>✓ 手機全適配</span>
+            <span>✓ 零伺服器維護費</span>
+          </div>
+        </div>
 
-    <section id="contact" class="contact">
-      <h2 class="section-title">聯絡我們</h2>
-      <p>
-        若您有 ESG 報告書編制、碳盤查或企業輔導需求，歡迎直接填表與我們聯繫。
-      </p>
-
-      <!-- Web3Forms 表單整合 -->
-      <form id="consultForm" class="contact-form">
-        <input
-          type="hidden"
-          name="access_key"
-          value="caa94f1f-651d-440c-ad2e-25da08a935b6"
-        />
-        <input
-          type="hidden"
-          name="subject"
-          value="【松展官網】新訪客諮詢通知"
-        />
-
-        <div class="form-group">
-          <input
-            type="text"
-            name="聯絡人姓名"
-            placeholder="姓名 / 職稱"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <input
-            type="email"
-            name="電子信箱"
-            placeholder="電子信箱 (Email)"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <input type="tel" name="聯絡電話" placeholder="聯絡電話" required />
-        </div>
-        <div class="form-group">
-          <select name="諮詢項目" required>
-            <option value="" disabled selected>請選擇諮詢項目</option>
-            <option value="企業永續發展 / ESG 報告書">
-              企業永續發展 / ESG 報告書
-            </option>
-            <option value="溫室氣體盤查 / 碳足跡計算">
-              溫室氣體盤查 / 碳足跡計算
-            </option>
-            <option value="內部培訓與輔導課程">內部培訓與輔導課程</option>
-            <option value="其他合作洽詢">其他合作洽詢</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <textarea
-            name="需求說明"
-            placeholder="請簡述您的需求或現階段面臨的挑戰..."
-          ></textarea>
-        </div>
-        <button type="submit" id="submitBtn" class="submit-btn">
-          立即送出諮詢
-        </button>
-        <div
-          id="formResult"
-          style="margin-top: 15px; font-weight: bold; text-align: center"
-        ></div>
-      </form>
-
-      <div style="margin-top: 35px; color: #666; font-size: 0.95rem">
-        <div>✉️ <strong>信箱：</strong>songzhan.innovation@gmail.com</div>
-        <div style="margin-top: 5px">
-          📍 <strong>地址：</strong>桃園市中壢區八德路59-1號一樓
+        <!-- 軌道 2：ESG 綠色永續轉型 -->
+        <div class="relative bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-slate-100 flex flex-col justify-between hover:shadow-2xl transition-all duration-300 group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-sz-dark flex items-center justify-center text-2xl font-bold">
+              🌱
+            </div>
+            <span class="text-xs font-bold tracking-widest text-sz-dark uppercase">Sustainability</span>
+            <h3 class="text-2xl font-bold text-sz-navy">ESG 永續發展 ‧ 碳管理顧問</h3>
+            <p class="text-sm text-sz-sub leading-relaxed">
+              協助企業因應全球供應鏈法規與碳關稅挑戰。提供客製化 ESG 報告書編制、ISO 14064 溫室氣體盤查、產品生命週期碳足跡計算及企業專屬綠色轉型工作坊。
+            </p>
+          </div>
+          <div class="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+            <span>✓ 國際標準對接</span>
+            <span>✓ 實質減碳路徑</span>
+            <span>✓ 供應鏈合規</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <footer>
-      <p>
-        &copy; 2026 松展創新國際有限公司 SONG ZHAN INNOVATION INTERNATIONAL CO.,
-        LTD. All Rights Reserved.
-      </p>
+    <!-- 核心服務項目清單 Services -->
+    <section id="services" class="py-20 bg-slate-50 border-y border-slate-200">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 space-y-3">
+          <span class="text-xs font-bold tracking-widest text-sz-emerald uppercase block">Services Spectrum</span>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-sz-navy">專業服務項目</h2>
+          <div class="w-12 h-1 bg-sz-emerald mx-auto rounded-full mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- 服務 1 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow space-y-3">
+            <div class="text-2xl mb-2">⚡️</div>
+            <h3 class="text-lg font-bold text-sz-navy">客製化品牌官網</h3>
+            <p class="text-xs text-sz-sub leading-relaxed">為企業打造高質感的現代官方網站，整合作品展示、表單轉發與行動通訊對接。</p>
+          </div>
+          <!-- 服務 2 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow space-y-3">
+            <div class="text-2xl mb-2">✍️</div>
+            <h3 class="text-lg font-bold text-sz-navy">ESG 永續報告書</h3>
+            <p class="text-xs text-sz-sub leading-relaxed">輔導企業編制符合 GRI、SASB 及 TCFD 等國際準則之專業永續報告書。</p>
+          </div>
+          <!-- 服務 3 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow space-y-3">
+            <div class="text-2xl mb-2">🌿</div>
+            <h3 class="text-lg font-bold text-sz-navy">碳盤查與碳足跡</h3>
+            <p class="text-xs text-sz-sub leading-relaxed">協助進行 ISO 14064 溫室氣體盤查與產品生命週期評估，掌握碳排放熱點。</p>
+          </div>
+          <!-- 服務 4 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow space-y-3">
+            <div class="text-2xl mb-2">🔄</div>
+            <h3 class="text-lg font-bold text-sz-navy">企業轉型策略顧問</h3>
+            <p class="text-xs text-sz-sub leading-relaxed">因應供應鏈與政策法規要求，量身打造數位化與低碳轉型推動路徑。</p>
+          </div>
+          <!-- 服務 5 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow space-y-3">
+            <div class="text-2xl mb-2">🎓</div>
+            <h3 class="text-lg font-bold text-sz-navy">內部培訓與實戰工作坊</h3>
+            <p class="text-xs text-sz-sub leading-relaxed">舉辦客製化企業培訓，培育具備數位思維與永續碳管理的核心種子人才。</p>
+          </div>
+          <!-- 服務 6 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow space-y-3">
+            <div class="text-2xl mb-2">📊</div>
+            <h3 class="text-lg font-bold text-sz-navy">數位獲客系統建置</h3>
+            <p class="text-xs text-sz-sub leading-relaxed">串接 Google Analytics、LINE 官方帳號與自動回覆，打造高效轉換的獲客管道。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 團隊介紹 Team -->
+    <section id="team" class="py-20 max-w-4xl mx-auto px-6 text-center">
+      <div class="space-y-4">
+        <span class="text-xs font-bold tracking-widest text-sz-emerald uppercase">Leadership</span>
+        <h2 class="text-3xl font-bold text-sz-navy">專業顧問團隊</h2>
+        <div class="pt-6">
+          <h3 class="text-2xl font-bold text-sz-navy">梁琳立</h3>
+          <p class="text-xs font-semibold text-sz-emerald mt-1">負責人 ‧ 首席顧問</p>
+          <p class="text-sm text-sz-sub max-w-xl mx-auto mt-4 leading-relaxed font-light">
+            松展創新由專業跨領域顧問團隊領軍，深耕數位賦能與永續轉型領域，致力於引導台灣企業化危機為轉型契機，在瞬息萬變的商業環境中建立持久優勢。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 聯絡我們 Contact Form -->
+    <section id="contact" class="py-24 max-w-3xl mx-auto px-6">
+      <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-slate-100">
+        <div class="text-center mb-10 space-y-2">
+          <h2 class="text-2xl md:text-3xl font-bold text-sz-navy">預約諮詢 ‧ 啟動企業新動能</h2>
+          <p class="text-xs md:text-sm text-sz-sub">若您有商業官網建置、ESG 永續輔導或碳盤查需求，歡迎填表聯繫。</p>
+        </div>
+
+        <form id="consultForm" class="space-y-5">
+          <input type="hidden" name="access_key" value="caa94f1f-651d-440c-ad2e-25da08a935b6" />
+          <input type="hidden" name="subject" value="【松展官網】新訪客諮詢通知" />
+          <input type="hidden" name="from_name" value="松展創新官網預約系統" />
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-2">聯絡人姓名 / 職稱 *</label>
+              <input type="text" name="聯絡人姓名" required placeholder="例：陳經理" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-sz-emerald bg-slate-50">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-2">聯絡電話 *</label>
+              <input type="tel" name="聯絡電話" required placeholder="0912-345-678" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-sz-emerald bg-slate-50">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-2">電子信箱 (Email) *</label>
+            <input type="email" name="電子信箱" required placeholder="example@company.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-sz-emerald bg-slate-50">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-2">諮詢項目 *</label>
+            <select name="諮詢項目" required class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-sz-emerald bg-slate-50 text-slate-700">
+              <option value="" disabled selected>請選擇您的需求項目</option>
+              <option value="企業品牌 / 商業官網客製開發">💻 企業品牌 / 商業官網客製開發</option>
+              <option value="企業永續發展 / ESG 報告書">🌱 企業永續發展 / ESG 報告書</option>
+              <option value="溫室氣體盤查 / 碳足跡計算">📊 溫室氣體盤查 / 碳足跡計算</option>
+              <option value="內部培訓與輔導工作坊">🎓 內部培訓與輔導工作坊</option>
+              <option value="其他客製合作洽詢">🤝 其他客製合作洽詢</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-2">需求說明</label>
+            <textarea name="需求說明" rows="4" placeholder="請簡述您的產業、現階段面臨的挑戰或預期目標..." class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-sz-emerald bg-slate-50"></textarea>
+          </div>
+
+          <button type="submit" id="submitBtn" class="w-full py-4 bg-sz-navy text-white rounded-xl font-bold tracking-wider hover:bg-sz-emerald transition-all duration-300 shadow-md">
+            立即送出諮詢
+          </button>
+
+          <div id="formResult" class="hidden text-center p-4 rounded-xl text-sm font-medium"></div>
+        </form>
+
+        <div class="mt-8 pt-6 border-t border-slate-100 text-xs text-sz-sub space-y-2 text-center md:text-left flex flex-col md:flex-row justify-between">
+          <div>✉️ <strong>信箱：</strong>songzhan.innovation@gmail.com</div>
+          <div>📍 <strong>地址：</strong>桃園市中壢區八德路59-1號一樓</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 頁尾 Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-xs">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-center md:text-left">
+          <p class="font-bold text-white text-base tracking-wider mb-1">松展創新國際有限公司</p>
+          <p class="text-slate-500">統一編號：94132470 ‧ 企業數位賦能與綠色轉型夥伴</p>
+        </div>
+        <p class="text-slate-500">&copy; 2026 SONG ZHAN INNOVATION INTERNATIONAL CO., LTD. All Rights Reserved.</p>
+      </div>
     </footer>
 
+    <!-- 表單送出互動 JS -->
     <script>
       const form = document.getElementById("consultForm");
       const result = document.getElementById("formResult");
@@ -418,7 +296,7 @@
         e.preventDefault();
         btn.disabled = true;
         btn.innerText = "傳送中，請稍候...";
-        result.innerHTML = "";
+        result.classList.add('hidden');
 
         const formData = new FormData(form);
         const object = Object.fromEntries(formData);
@@ -435,24 +313,21 @@
           .then(async (response) => {
             let json = await response.json();
             if (response.status == 200) {
-              result.style.color = "#2d6a4f";
-              result.innerHTML = "✓ 諮詢表單已成功送出！我們將盡快與您聯繫。";
+              result.className = "text-center p-4 rounded-xl text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 block";
+              result.innerHTML = "✓ 諮詢表單已成功送出！我們將由專人於 24 小時內與您聯繫。";
               form.reset();
             } else {
-              result.style.color = "#e63946";
+              result.className = "text-center p-4 rounded-xl text-sm font-medium bg-red-50 text-red-800 border border-red-200 block";
               result.innerHTML = "✕ 送出失敗：" + json.message;
             }
           })
           .catch((error) => {
-            result.style.color = "#e63946";
+            result.className = "text-center p-4 rounded-xl text-sm font-medium bg-red-50 text-red-800 border border-red-200 block";
             result.innerHTML = "✕ 網路連線錯誤，請稍後再試！";
           })
           .then(function () {
             btn.disabled = false;
             btn.innerText = "立即送出諮詢";
-            setTimeout(() => {
-              result.innerHTML = "";
-            }, 6000);
           });
       });
     </script>
